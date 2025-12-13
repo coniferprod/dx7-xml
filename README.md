@@ -1,6 +1,14 @@
 # dx7-xml
 XML Schema and transformation utilities for the Yamaha DX7 patch model
 
+## Validation
+
+To validate the XML documents against the schema, use `xmllint`:
+
+    xmllint --xinclude --noout --schema schema/cartridge-0.1.xsd data/testcartridge.xml
+
+This will process the XInclude elements first, and then validate the result against the XML Schema. The `--noout` parameter suppresses the output of the validated document.
+
 ## XSL stylesheets
 
 Some XSL stylesheets for transformation are found in the `stylesheets` directory.
