@@ -20,6 +20,10 @@ to perform the transformation:
 
     xsltproc --xinclude stylesheets/list-voices.xsl data/testcartridge.xml
 
+## Algorithm diagrams
+
+The algorithm diagrams in SVG format were generated with [svgbob](https://github.com/ivanceras/svgbob). They are found in the `stylesheets/diagrams` directory.
+
 
 ## TODO
 
