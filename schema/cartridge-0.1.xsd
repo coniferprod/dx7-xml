@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-    <xsd:include schemaLocation="voice.xsd"/>
+    <xsd:include schemaLocation="voice-0.1.xsd"/>
 
     <xsd:element name="voices">
         <xsd:complexType>
