@@ -20,6 +20,12 @@ to perform the transformation:
 
     xsltproc --xinclude stylesheets/list-voices.xsl data/testcartridge.xml
 
+### voice-html.xsl
+
+Generates an HTML page from a voice.
+
+    xsltproc --xinclude stylesheets/voice-html.xsl data/brass1.xml
+
 ## Algorithm diagrams
 
 The algorithm diagrams in SVG format were generated with [svgbob](https://github.com/ivanceras/svgbob). They are found in the `stylesheets/diagrams` directory.
@@ -31,6 +37,4 @@ The algorithm diagrams in SVG format were generated with [svgbob](https://github
 individual voice to the DX7 MIDI System Exclusive format
 * Stylesheet or tool to transform a DX7 MIDI System Exclusive
 file to the XML format
-* Stylesheet to transform a cartridge or voice in the XML format
-to HTML or other displayable format
 * Tool to generate source code based on the schema, to process the data model
