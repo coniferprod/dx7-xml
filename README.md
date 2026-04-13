@@ -26,6 +26,19 @@ Generates an HTML page from a voice.
 
     xsltproc --xinclude stylesheets/voice-html.xsl data/brass1.xml
 
+### flatten.xsl
+
+Flattens the XML Schema definition into one file for convenience.
+
+## Compacting the schema
+
+To "un-pretty-print" the schema to save bandwidth, first flatten the schema,
+then use
+
+    xmllint --noblanks schema/cartridge-0.1-flat.xsd
+
+to remove non-essential whitespace. 
+
 ## Algorithm diagrams
 
 The algorithm diagrams in SVG format were generated with [svgbob](https://github.com/ivanceras/svgbob). They are found in the `stylesheets/diagrams` directory.
