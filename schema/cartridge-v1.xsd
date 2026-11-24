@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="0.1">
 
-    <xs:include schemaLocation="voice-0.1.xsd"/>
+    <xs:annotation>
+        <xs:documentation>
+            This schema defines the structure of DX7 cartridge data.
+            A cartridge always contains 32 voices.
+        </xs:documentation>
+    </xs:annotation>
+    
+    <xs:include schemaLocation="voice-v1.xsd"/>
 
     <xs:element name="voices">
         <xs:complexType>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1">
+    <!-- Algorithm 1...32 -->
+    <xs:simpleType name="algorithmType">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Level 0...99 -->
+    <xs:simpleType name="levelType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Transpose -24...+24 semitones -->
+    <xs:simpleType name="transposeType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="-24"/>
+            <xs:maxInclusive value="24"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- LFO waveform -->
+    <xs:simpleType name="lfoWaveformType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="triangle"/>
+            <xs:enumeration value="saw-down"/>
+            <xs:enumeration value="saw-up"/>
+            <xs:enumeration value="square"/>
+            <xs:enumeration value="sine"/>
+            <xs:enumeration value="sample-and-hold"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Depth 0...7 -->
+    <xs:simpleType name="depthType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Sensitivity 0...3 -->
+    <xs:simpleType name="sensitivityType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Coarse 0...31 (0.5, 1, 2, 3, ..., 31) -->
+    <xs:simpleType name="coarseType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="31"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Fine 0...99 (a multiplier of 1.00, 1.01, 1.02, 1.03 up to 1.99) -->
+    <xs:simpleType name="fineType">
+        <xs:restriction base="xs:nonNegativeInteger">
+            <xs:maxInclusive value="99"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Detune -7...+7 -->
+    <xs:simpleType name="detuneType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="-7"/>
+            <xs:maxInclusive value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Voice name, exactly 10 characters -->
+    <xs:simpleType name="nameType">
+        <xs:restriction base="xs:string">
+            <xs:length value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Operator mode -->
+    <xs:simpleType name="operatorModeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ratio"/>
+            <xs:enumeration value="fixed"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Define a list of rates or levels -->
+    <xs:simpleType name="rateOrLevelListType">
+        <xs:list itemType="levelType"/>
+    </xs:simpleType>
+
+    <!-- Define a type for rates or levels restricted to exactly four items -->
+    <xs:simpleType name="egRatesOrLevelsType">
+        <xs:restriction base="rateOrLevelListType">
+            <xs:length value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="egType">
+        <xs:all>
+            <xs:element name="rates" type="egRatesOrLevelsType"/>
+            <xs:element name="levels" type="egRatesOrLevelsType"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="envelope-generator" type="egType"/>
+    <xs:element name="pitch-envelope-generator" type="egType"/>
+
+    <!-- Curve style -->
+    <xs:simpleType name="curveStyleType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="-EXP"/>
+            <xs:enumeration value="+EXP"/>
+            <xs:enumeration value="+LIN"/>
+            <xs:enumeration value="-LIN"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Breakpoint key is MIDI note 0...127 -->
+    <!-- 1 = A-1 ... 39 = C3 ... 99 = C8-->
+    <xs:simpleType name="keyType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A-1"/>
+            <xs:enumeration value="A#-1"/>
+            <xs:enumeration value="B-1"/>
+            <xs:enumeration value="C0"/>
+            <xs:enumeration value="C#0"/>
+            <xs:enumeration value="D0"/>
+            <xs:enumeration value="D#0"/>
+            <xs:enumeration value="E0"/>
+            <xs:enumeration value="F0"/>
+            <xs:enumeration value="F#0"/>
+            <xs:enumeration value="G0"/>
+            <xs:enumeration value="G#0"/>
+            <xs:enumeration value="A0"/>
+            <xs:enumeration value="A#0"/>
+            <xs:enumeration value="B0"/>
+            <xs:enumeration value="C1"/>
+            <xs:enumeration value="C#1"/>
+            <xs:enumeration value="D1"/>
+            <xs:enumeration value="D#1"/>
+            <xs:enumeration value="E1"/>
+            <xs:enumeration value="F1"/>
+            <xs:enumeration value="F#1"/>
+            <xs:enumeration value="G1"/>
+            <xs:enumeration value="G#1"/>
+            <xs:enumeration value="A1"/>
+            <xs:enumeration value="A#1"/>
+            <xs:enumeration value="B1"/>
+            <xs:enumeration value="C2"/>
+            <xs:enumeration value="C#2"/>
+            <xs:enumeration value="D2"/>
+            <xs:enumeration value="D#2"/>
+            <xs:enumeration value="E2"/>
+            <xs:enumeration value="F2"/>
+            <xs:enumeration value="F#2"/>
+            <xs:enumeration value="G2"/>
+            <xs:enumeration value="G#2"/>
+            <xs:enumeration value="A2"/>
+            <xs:enumeration value="A#2"/>
+            <xs:enumeration value="B2"/>
+            <xs:enumeration value="C3"/>
+            <xs:enumeration value="C#3"/>
+            <xs:enumeration value="D3"/>
+            <xs:enumeration value="D#3"/>
+            <xs:enumeration value="E3"/>
+            <xs:enumeration value="F3"/>
+            <xs:enumeration value="F#3"/>
+            <xs:enumeration value="G3"/>
+            <xs:enumeration value="G#3"/>
+            <xs:enumeration value="A3"/>
+            <xs:enumeration value="A#3"/>
+            <xs:enumeration value="B3"/>
+            <xs:enumeration value="C4"/>
+            <xs:enumeration value="C#4"/>
+            <xs:enumeration value="D4"/>
+            <xs:enumeration value="D#4"/>
+            <xs:enumeration value="E4"/>
+            <xs:enumeration value="F4"/>
+            <xs:enumeration value="F#4"/>
+            <xs:enumeration value="G4"/>
+            <xs:enumeration value="G#4"/>
+            <xs:enumeration value="A4"/>
+            <xs:enumeration value="A#4"/>
+            <xs:enumeration value="B4"/>
+            <xs:enumeration value="C5"/>
+            <xs:enumeration value="C#5"/>
+            <xs:enumeration value="D5"/>
+            <xs:enumeration value="D#5"/>
+            <xs:enumeration value="E5"/>
+            <xs:enumeration value="F5"/>
+            <xs:enumeration value="F#5"/>
+            <xs:enumeration value="G5"/>
+            <xs:enumeration value="G#5"/>
+            <xs:enumeration value="A5"/>
+            <xs:enumeration value="A#5"/>
+            <xs:enumeration value="B5"/>
+            <xs:enumeration value="C6"/>
+            <xs:enumeration value="C#6"/>
+            <xs:enumeration value="D6"/>
+            <xs:enumeration value="D#6"/>
+            <xs:enumeration value="E6"/>
+            <xs:enumeration value="F6"/>
+            <xs:enumeration value="F#6"/>
+            <xs:enumeration value="G6"/>
+            <xs:enumeration value="G#6"/>
+            <xs:enumeration value="A6"/>
+            <xs:enumeration value="A#6"/>
+            <xs:enumeration value="B6"/>
+            <xs:enumeration value="C7"/>
+            <xs:enumeration value="C#7"/>
+            <xs:enumeration value="D7"/>
+            <xs:enumeration value="D#7"/>
+            <xs:enumeration value="E7"/>
+            <xs:enumeration value="F7"/>
+            <xs:enumeration value="F#7"/>
+            <xs:enumeration value="G7"/>
+            <xs:enumeration value="G#7"/>
+            <xs:enumeration value="A7"/>
+            <xs:enumeration value="A#7"/>
+            <xs:enumeration value="B7"/>
+            <xs:enumeration value="C8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="scalingType">
+        <xs:all>
+            <xs:element name="curve" type="curveStyleType"/>
+            <xs:element name="depth" type="levelType"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="keyboard-level-scaling">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="breakpoint" type="keyType"/>
+                <xs:element name="left" type="scalingType"/>
+                <xs:element name="right" type="scalingType"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="operatorType">
+        <xs:all>
+            <xs:element ref="envelope-generator"/>
+            <xs:element ref="keyboard-level-scaling"/>
+            <xs:element name="amplitude-modulation-sensitivity" type="sensitivityType"/>
+            <xs:element name="key-velocity-sensitivity" type="depthType"/>
+            <xs:element name="keyboard-rate-scaling" type="depthType"/>
+        </xs:all>
+        <xs:attribute name="level" type="levelType" use="required"/>
+        <xs:attribute name="mode" type="operatorModeType" use="required"/>
+        <xs:attribute name="coarse" type="coarseType" use="required"/>
+        <xs:attribute name="fine" type="fineType" use="required"/>
+        <xs:attribute name="detune" type="detuneType" use="required"/>
+    </xs:complexType>
+
+    <xs:element name="operator" type="operatorType"/>
+
+    <xs:element name="operators">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="operator" minOccurs="6" maxOccurs="6"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="lfo">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="waveform" type="lfoWaveformType"/>
+                <xs:element name="speed" type="levelType"/>
+                <xs:element name="delay" type="levelType"/>
+            </xs:all>
+
+            <xs:attribute name="pitch-modulation-depth" type="levelType" use="required"/>
+            <xs:attribute name="amplitude-modulation-depth" type="levelType" use="required"/>
+            <xs:attribute name="sync" type="xs:boolean" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="voice">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="operators"/>
+                <xs:element ref="pitch-envelope-generator"/>
+                <xs:element ref="lfo"/>
+            </xs:all>
+            <xs:attribute name="name" type="nameType" use="required"/>
+            <xs:attribute name="algorithm" type="algorithmType" use="required"/>
+            <xs:attribute name="transpose" type="transposeType" use="required"/>
+            <xs:attribute name="feedback" type="depthType" use="required"/>
+            <xs:attribute name="oscillator-sync" type="xs:boolean" use="required"/>
+            <xs:attribute name="pitch-modulation-sensitivity" type="depthType" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

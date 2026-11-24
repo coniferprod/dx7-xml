@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<voice name="LEARNING  " algorithm="9" feedback="5" transpose="0"
+    oscillator-sync="true" pitch-modulation-sensitivity="2">
+    <operators>
+        <operator level="99" mode="ratio" coarse="0" fine="50" detune="0">
+            <envelope-generator>
+                <rates>43 99 99 50</rates>
+                <levels>99 99 99 0</levels>
+            </envelope-generator>
+            <keyboard-level-scaling>
+                <breakpoint>E4</breakpoint>
+                <left>
+                    <curve>-LIN</curve>
+                    <depth>99</depth>
+                </left>
+                <right>
+                    <curve>-EXP</curve>
+                    <depth>80</depth>
+                </right>
+            </keyboard-level-scaling>
+            <amplitude-modulation-sensitivity>3</amplitude-modulation-sensitivity>
+            <key-velocity-sensitivity>3</key-velocity-sensitivity>
+            <keyboard-rate-scaling>4</keyboard-rate-scaling>
+        </operator>
+
+        <operator level="69" mode="ratio" coarse="2" fine="0" detune="0">
+            <envelope-generator>
+                <rates>43 99 99 50</rates>
+                <levels>99 99 99 0</levels>
+            </envelope-generator>
+            <keyboard-level-scaling>
+                <breakpoint>E4</breakpoint>
+                <left>
+                    <curve>-LIN</curve>
+                    <depth>99</depth>
+                </left>
+                <right>
+                    <curve>-EXP</curve>
+                    <depth>0</depth>
+                </right>
+            </keyboard-level-scaling>
+            <amplitude-modulation-sensitivity>3</amplitude-modulation-sensitivity>
+            <key-velocity-sensitivity>0</key-velocity-sensitivity>
+            <keyboard-rate-scaling>0</keyboard-rate-scaling>
+        </operator>
+
+        <operator level="93" mode="ratio" coarse="4" fine="0" detune="0">
+            <envelope-generator>
+                <rates>95 20 20 50</rates>
+                <levels>99 95 0 0</levels>
+            </envelope-generator>
+            <keyboard-level-scaling>
+                <breakpoint>A2</breakpoint>
+                <left>
+                    <curve>-LIN</curve>
+                    <depth>4</depth>
+                </left>
+                <right>
+                    <curve>-LIN</curve>
+                    <depth>99</depth>
+                </right>
+            </keyboard-level-scaling>
+            <amplitude-modulation-sensitivity>0</amplitude-modulation-sensitivity>
+            <key-velocity-sensitivity>2</key-velocity-sensitivity>
+            <keyboard-rate-scaling>0</keyboard-rate-scaling>
+        </operator>
+
+        <operator level="93" mode="ratio" coarse="4" fine="0" detune="3">
+            <envelope-generator>
+                <rates>95 29 20 50</rates>
+                <levels>99 95 0 0</levels>
+            </envelope-generator>
+            <keyboard-level-scaling>
+                <breakpoint>C3</breakpoint>
+                <left>
+                    <curve>-LIN</curve>
+                    <depth>0</depth>
+                </left>
+                <right>
+                    <curve>-LIN</curve>
+                    <depth>99</depth>
+                </right>
+            </keyboard-level-scaling>
+            <amplitude-modulation-sensitivity>0</amplitude-modulation-sensitivity>
+            <key-velocity-sensitivity>7</key-velocity-sensitivity>
+            <keyboard-rate-scaling>0</keyboard-rate-scaling>
+        </operator>
+
+        <operator level="70" mode="ratio" coarse="24" fine="0" detune="0">
+            <envelope-generator>
+                <rates>95 20 20 50</rates>
+                <levels>99 95 0 0</levels>
+            </envelope-generator>
+            <keyboard-level-scaling>
+                <breakpoint>C3</breakpoint>
+                <left>
+                    <curve>-LIN</curve>
+                    <depth>0</depth>
+                </left>
+                <right>
+                    <curve>-LIN</curve>
+                    <depth>0</depth>
+                </right>
+            </keyboard-level-scaling>
+            <amplitude-modulation-sensitivity>0</amplitude-modulation-sensitivity>
+            <key-velocity-sensitivity>7</key-velocity-sensitivity>
+            <keyboard-rate-scaling>0</keyboard-rate-scaling>
+        </operator>
+
+        <operator level="75" mode="ratio" coarse="8" fine="0" detune="0">
+            <envelope-generator>
+                <rates>95 29 20 50</rates>
+                <levels>99 95 0 0</levels>
+            </envelope-generator>
+            <keyboard-level-scaling>
+                <breakpoint>C3</breakpoint>
+                <left>
+                    <curve>-LIN</curve>
+                    <depth>0</depth>
+                </left>
+                <right>
+                    <curve>-LIN</curve>
+                    <depth>0</depth>
+                </right>
+            </keyboard-level-scaling>
+            <amplitude-modulation-sensitivity>0</amplitude-modulation-sensitivity>
+            <key-velocity-sensitivity>7</key-velocity-sensitivity>
+            <keyboard-rate-scaling>0</keyboard-rate-scaling>
+        </operator>
+    </operators>
+
+    <pitch-envelope-generator>
+        <rates>0 0 0 0</rates>
+        <levels>50 50 50 50</levels>
+    </pitch-envelope-generator>
+
+    <lfo sync="false" pitch-modulation-depth="15" amplitude-modulation-depth="0">
+        <waveform>sine</waveform>
+        <speed>27</speed>
+        <delay>55</delay>
+    </lfo>
+
+</voice>
